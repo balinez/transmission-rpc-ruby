@@ -4,7 +4,7 @@ module Transmission
       class TorrentError < StandardError; end
       class MissingAttributesError < StandardError; end
 
-      attr_accessor :attributes, :deleted, :connector, :torrents, :ids
+      attr_accessor :attributes, :deleted, :connector, :torrents, :ids, :duplicate
 
       def initialize(torrent_object, connector)
         if torrent_object.is_a? Array
