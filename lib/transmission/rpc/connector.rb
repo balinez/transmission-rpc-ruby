@@ -52,7 +52,7 @@ module Transmission
         @connection ||= begin
           connection = Faraday.new(:url => "#{scheme}://#{@host}:#{@port}", :ssl => {:verify => false}) do |faraday|
             faraday.request  :url_encoded
-            faraday.response :logger
+            faraday.response :logger, Rails.logger
             faraday.adapter  Faraday.default_adapter
           end
           connection.basic_auth(@credentials[:username], @credentials[:password]) if @credentials
